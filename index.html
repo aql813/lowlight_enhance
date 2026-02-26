@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>低光照图像增强</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>低光照图像增强</h1>
+
+        <div class="algorithm-select">
+            <label for="algorithm">选择增强算法:</label>
+            <select id="algorithm">
+                <option value="deeplearning">深度学习模型</option>
+                <option value="lime">LIME算法</option>
+            </select>
+        </div>
+
+        <div class="upload-section">
+            <div class="file-label">选择低光照图像进行增强</div>
+            <input type="file" id="fileInput" accept="image/*">
+            <button id="uploadBtn">上传并增强图像</button>
+        </div>
+
+        <div class="processing-section">
+            <div class="status">正在处理您的图像...</div>
+            <div class="progress-container">
+                <div class="progress-bar"></div>
+            </div>
+            <div class="time-info">预计耗时: <span id="timeEstimate">10-15秒</span></div>
+        </div>
+
+        <div class="result-section">
+            <h2>处理结果</h2>
+            <div class="algorithm-used">使用的算法: <span id="algorithmResult">深度学习模型</span></div>
+
+            <div class="image-comparison">
+                <div class="image-container">
+                    <h3>原始图像</h3>
+                    <img id="originalImage" src="" alt="原始图像">
+                </div>
+                <div class="image-container">
+                    <h3>增强图像</h3>
+                    <img id="enhancedImage" src="" alt="增强图像">
+                </div>
+            </div>
+
+            <div class="result-stats">
+                处理耗时: <span id="processingTime">0.0</span> 秒
+            </div>
+
+            <div class="download-btn-container">
+                <button id="downloadBtn">下载增强图像</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
